@@ -1,20 +1,13 @@
-# Vite + React + TailwindCSS
+# Pastesnip
 
-A simple Vite with TailwindCSS app that is configured with React.
+A simple text or 'source code' storage website inspired in Pastebin.
 
-Ready to deploy on Railway.
-
-## ✨ Features
-
-- Vite
-- React
-- TailwindCSS
-
-## 💁‍♀️ How to use
-Local
-- Install dependencies `yarn`
+## Setup
+- Install dependencies with `yarn`
 - Run `yarn dev`
 
-Railway setup
+Open http://localhost:3000 with your browser to see the result.
+
+## Deploy on Railway
 - Connect to your Railway project `railway link`
 - Start the development server `railway run yarn dev`
