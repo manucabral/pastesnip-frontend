@@ -1,4 +1,3 @@
-import Navbar from './components/Navbar'
 import { useQuery } from '@apollo/client'
 import { Q_HELLO } from './graphql/queries'
 import { Routes, Route, useNavigate } from "react-router-dom";
