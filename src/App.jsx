@@ -8,12 +8,13 @@ import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
 import Maintenance from './pages/Maintenance';
+import Loading from './components/Loading';
 
 export default function App() {
     const navigate = useNavigate();
     const { loading, error } = useQuery(Q_HELLO);
 
-    if (loading) return <p>Loading...</p>;
+    if (loading) return <Loading />;
     if (error) navigate("/maintenance");
     return (
         <Routes>
