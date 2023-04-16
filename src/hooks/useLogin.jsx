@@ -1,4 +1,4 @@
-export const useAuth = ({ notification, setNotification, loginMutation, navigate }) => {
+export const useLogin = ({ notification, setNotification, loginMutation, navigate }) => {
     
     const validateEmail = (email) => {
         if (!email) return false;
