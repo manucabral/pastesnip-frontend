@@ -19,8 +19,11 @@ export const useAuth = ({ notification, setNotification, loginMutation, navigate
         try{
             const response = await loginMutation({ variables: { email, password } });
             setNotification({ show: true, message: "Login successful, redirecting...", type: "success" });
+            const { access, refresh } = response.data.loginUser;
+            localStorage.setItem('acess', access);
+            localStorage.setItem('refresh', refresh);
             setTimeout(() => {
-                navigate('/dashboard');
+                navigate('/home');
                 setNotification({ show: false, message: "", type: "" });
             }, 2000);
         } catch (err) {
