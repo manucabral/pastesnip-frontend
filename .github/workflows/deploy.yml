@@ -28,7 +28,6 @@ jobs:
       run: |
         touch .env
         echo VITE_GRAPHQL_ENDPOINT=${{ secrets.VITE_GRAPHQL_ENDPOINT }} VITE_BASE_URL=${{ secrets.VITE_BASE_URL }}  >> .env.local
-        echo VITE_BASE_URL
     - run: npm run build --if-present
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
