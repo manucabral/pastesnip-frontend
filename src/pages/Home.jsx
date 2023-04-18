@@ -1,6 +1,10 @@
+import { useEffect } from "react"
 import { Link } from "react-router-dom"
 
 export default function Home() {
+    useEffect(() => {
+        document.title = "Pastesnip - Your pastes, your way."
+    }, [])
     return (
         <div className="flex flex-col items-center justify-center mt-10">
             <h1 className="text-6xl font-bold"> Pastesnip </h1>

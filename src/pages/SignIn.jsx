@@ -5,6 +5,7 @@ import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { M_LOGIN } from "../graphql/mutations";
 import Loading from "../components/Loading";
+import { useEffect } from "react";
 
 export default function SignIn() {
     const navigate = useNavigate();
@@ -12,6 +13,9 @@ export default function SignIn() {
     const [ loginMutation, { loading } ] = useMutation(M_LOGIN);
     const { handleSubmit } = useLogin({ notification, setNotification, loginMutation, navigate });
     if (loading) return <Loading />;
+    useEffect(() => {
+        document.title = "Sign In - Pastesnip"
+    }, [])
     return (
         <div className="flex flex-col w-full items-center justify-center min-h-fit gap-10">
             <h1 className="text-white text-3xl mt-10">Sign In to your account</h1>

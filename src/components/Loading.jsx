@@ -1,4 +1,9 @@
+import { useEffect } from "react"
+
 export default function Loading() {
+  useEffect(() => {
+    document.title = "Loading - Pastesnip"
+  }, [])
   return (
     <div className="bg-gray-900 h-screen flex flex-col justify-center items-center gap-10">
       <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-white" />
