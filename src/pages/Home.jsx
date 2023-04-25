@@ -20,7 +20,7 @@ export default function Home() {
                         <Link to='/signin' className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
                             Sign in &rarr;
                         </Link>
-                        <Link to='/signup' className="shadow-lg shadow-blue-900/60 opacity-80 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-blue-500/60 dark:hover:bg-blue-900 dark:focus:ring-gray-800">
+                        <Link to='/signup' className="shadow-lg shadow-blue-900/60 opacity-80 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 dark:text-white border-blue-500/60 hover:bg-blue-900 focus:ring-gray-800 hover:shadow-lg hover:shadow-blue-500/70">
                             Register
                         </Link>
                     </div>
