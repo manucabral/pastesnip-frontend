@@ -6,32 +6,26 @@ export default function Home() {
         document.title = "Pastesnip - Your pastes, your way."
     }, [])
     return (
-        <div className="flex flex-col items-center justify-center mt-10">
-            <h1 className="text-6xl font-bold"> Pastesnip </h1>
-            <p className="lg:mt-3 text-2xl"> Your pastes, your way. </p>
-            <div className="flex flex-col flex-wrap items-center justify-around lg:mt-6 sm:w-full gap-2">
-                <Link to="/signin" className="lg:mt-4 mt-10 text-left border rounded-xl hover:text-blue-600 focus:text-blue-600">
-                    <h3 className="w-full m-2 text-left text-blue-600"> Log In &rarr; </h3>
-                    <p className="w-full m-2">
-                        Login to your account to access your pastes.
+        <div className="flex flex-col items-center text-center mt-14">
+            <section className="">
+                <div className="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-12">
+                    <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"> 
+                        Paste<span className="text-blue-500">snip</span> 
+                    </h1>
+                    <p className="mb-8 text-lg font-normal text-slate-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-300">
+                        The best place to store your pastes, share with the community, comment and interact with other users
+                        and remember... <span className="text-blue-500 ml-2 font-semibold">your pastes, your way!</span>
                     </p>
-                </Link>
-                <Link to="/signup" className="mt-4 text-left border rounded-xl hover:text-blue-600 focus:text-blue-600">
-                    <h3 className="w-full m-2 text-left text-blue-600"> Sign Up &rarr; </h3>
-                    <p className="w-full m-2">
-                        Create an account to start saving your pastes.
-                    </p>
-                </Link>
-            </div>
-            <div className="flex flex-col flex-wrap items-center justify-around max-w-4xl sm:w-full gap-2">
-                <h3 className="mt-10 text-3xl font-bold"> Or, </h3>
-                <Link to="/pastes" className="mt-4 text-left border rounded-xl hover:text-blue-600 focus:text-blue-600">
-                    <h3 className="w-full m-2 text-left text-blue-600"> View Public Pastes &rarr; </h3>
-                    <p className="w-full m-2">
-                        View all public pastes without logging in.
-                    </p>
-                </Link>
-            </div>
+                    <div class="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                        <Link to='/signin' className="inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900">
+                            Sign in &rarr;
+                        </Link>
+                        <Link to='/signup' className="shadow-lg shadow-blue-900/60 opacity-80 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-blue-500/60 dark:hover:bg-blue-900 dark:focus:ring-gray-800">
+                            Register
+                        </Link>
+                    </div>
+                </div>
+            </section>
         </div>
     )
 }
