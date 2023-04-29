@@ -11,7 +11,7 @@ export default function Home() {
             <section>
                 <div className="flex flex-col items-center py-8 px-4 text-center lg:py-16 lg:px-12">
                     <div className="text-center py-4 lg:px-4">
-                        <div className="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+                        <div className="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex " role="alert">
                             <span className="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-sm font-bold mr-3">UPCOMING 🎉</span>
                             <a href="https://github.com/TeamParches/pastesnip-backend" className="font-semibold mr-2 text-left flex-auto">Get up to date on our Blog section!</a>
                         </div>
@@ -47,17 +47,17 @@ export default function Home() {
                     </p>
                 </div>
             </section>
-            <section class="bg-zinc-900">
+            <section class="bg-slate-900">
                 <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
                     <div class="max-w-screen-md mb-8 lg:mb-16">
                         <h2 class="mb-4 text-4xl tracking-tight text-blue-500"> Designed for your easily </h2>
                         <p class="m:text-xl text-white">
                             We have a lot of features that can you make
                             your code stuff more easily, practical and allows you to feedback from other users
-                            and interact with other people that have the same interests as you.
+                            and interact with other people that have the same interests as you
                         </p>
                     </div>
-                    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0">
+                    <div class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-14 md:space-y-0">
                         <div>
                             <div class="flex justify-center border border-blue-500/60 text-2xl items-center mb-4 w-10 h-10 rounded-md lg:h-12 lg:w-12">
                                 🪶
@@ -66,7 +66,7 @@ export default function Home() {
                             <p class="text-gray-500 dark:text-gray-400">
                                 We have a lightweight design that allows you to navigate easily and
                                 make your experience more enjoyable, you can navigate through the website
-                                without any problem.
+                                without any problem
                             </p>
                         </div>
                         <div>
@@ -77,7 +77,7 @@ export default function Home() {
                             <p class="text-gray-500 dark:text-gray-400">
                                 We have a secure system that allows you to store your pastes,
                                 you can private and only you can see it or you can make it public
-                                depending as your needs.
+                                depending as your needs
                             </p>
                         </div>
                         <div>
@@ -99,6 +99,28 @@ export default function Home() {
                             <p class="text-gray-500 dark:text-gray-400">
                                 Pastesnip allows you to interact with other users, you can comment
                                 on their pastes, give them feedback, rate his pastes and more!
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex justify-center border border-blue-500/60 text-2xl items-center mb-4 w-10 h-10 rounded-md lg:h-12 lg:w-12">
+                                🧑🏽‍💻
+                            </div>
+                            <h3 class="mb-2 text-xl font-bold dark:text-white"> Open to contribute </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                We are waiting for your contribution, you can contribute to the project
+                                and make it better, we are open to new ideas and new features that you
+                                can bring to the project
+                            </p>
+                        </div>
+                        <div>
+                            <div class="flex justify-center border border-blue-500/60 text-2xl items-center mb-4 w-10 h-10 rounded-md lg:h-12 lg:w-12">
+                                🌩️
+                            </div>
+                            <h3 class="mb-2 text-xl font-bold dark:text-white"> Fast </h3>
+                            <p class="text-gray-500 dark:text-gray-400">
+                                We have a fast system that allows you to create pastes and share them
+                                with other users in multi times, we are simply fast and we are always
+                                looking for ways to improve our system
                             </p>
                         </div>
                     </div>
