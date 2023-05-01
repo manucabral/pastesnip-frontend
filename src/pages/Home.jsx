@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
-import Footer from "../components/Footer"
+import Contact from "../components/Contact"
+import Footer from '../components/Footer'
 
 export default function Home() {
     useEffect(() => {
@@ -126,6 +127,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <Contact />
             <Footer />
         </div>
     )
