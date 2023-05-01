@@ -1,15 +1,12 @@
-import React from "react"
+import React from 'react'
 
 export default function Footer() {
     return (
-        <footer className="left-0 font-semibold bottom-0 w-[100%] bg-blue-600/10 text-white text-center py-8">
-            <p>
-                Pastesnip &copy; 2023 - Developed by 
-                <a href="https://github.com/TeamParches" className="ml-2 font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
-                    @TeamParches
-                </a>
+        <footer className='left-0 bottom-0 w-[100%] bg-blue-700/40 text-center p-3'>
+            <p className='font-normal'>
+                <strong>Pastesnip</strong> developed with <span className='text-blue-500'>&hearts;</span> by @TeamParches
+                &mdash; All rights reserved
             </p>
         </footer>
     )
 }
-
