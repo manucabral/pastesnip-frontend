@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom"
 import { useNotificationContext } from "../context/NotificationContext"
 
 import Navbar from "./Navbar"
+import Footer from "./Footer"
 import Notification from "./Notification"
 
 export default function Layout() {
@@ -11,6 +12,7 @@ export default function Layout() {
             <Navbar />
             {notification.show === true && <Notification message={notification.message} type={notification.type} />}
             <Outlet />
+            <Footer />
         </div>
     )
 }
