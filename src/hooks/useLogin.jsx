@@ -11,23 +11,19 @@ export const useLogin = ({ notification, setNotification, loginMutation, navigat
         let email = formData.get('email');
         let password = formData.get('password');
         if (!validateEmail(email))
-            return setNotification({ show: true, message: "Invalid email", type: "error" });
+            setNotification({ show: true, message: "Invalid email", type: "error" });
         if (password.length < 8)
-            return setNotification({ show: true, message: "Password must be at least 8 characters", type: "error" });
+            setNotification({ show: true, message: "Password must be at least 8 characters", type: "error" });
         if (notification.show === true) 
             setNotification({ show: false, message: "", type: "" });
         try{
             const response = await loginMutation({ variables: { email, password } });
-            setNotification({ show: true, message: "Login successful, redirecting...", type: "success" });
             const { access, refresh } = response.data.loginUser;
             localStorage.setItem('acess', access);
             localStorage.setItem('refresh', refresh);
-            setTimeout(() => {
-                navigate('/home');
-                setNotification({ show: false, message: "", type: "" });
-            }, 2000);
+            navigate('/');
         } catch (err) {
-            return setNotification({ show: true, message: 'Invalid credentials or user does not exist', type: "warning" });
+            setNotification({ show: true, message: 'Invalid credentials or user does not exist', type: "warning" });
         }
     }
 

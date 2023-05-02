@@ -6,6 +6,7 @@ import Layout from './components/Layout'
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import SignIn from './pages/SignIn';
+import SignUp from './pages/SignUp';
 import Maintenance from './pages/Maintenance';
 import Loading from './components/Loading';
 import { useAuth } from './hooks/useAuth';
@@ -33,7 +34,7 @@ export default function App() {
             <Route path="/" element={<Layout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/signin" element={<SignIn />} />
-                <Route path="/signup" element={<h1 className="text-white">Sign Up</h1>} />
+                <Route path="/signup" element={<SignUp />} />
                 <Route path="/maintenance" element={<Maintenance />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
