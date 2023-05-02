@@ -9,7 +9,9 @@ export default function Navbar() {
     return (
         <nav className="flex bg-gradient-to-r from-blue-400/60 to-blue-400/10 items-center justify-between flex-wrap top-0 sticky p-2 px-8 bg-opacity-80">
             <div className="flex items-center flex-shrink-0 text-white mr-8">
-                <span className="font-semibold text-xl tracking-tight">Pastesnip</span>
+                <Link to='/'>
+                    <span className="font-semibold text-xl tracking-tight">Pastesnip</span>
+                </Link>
             </div>
             <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                 <div className="text-md lg:flex-grow">
