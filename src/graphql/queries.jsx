@@ -19,7 +19,6 @@ export const Q_ME = gql`
             username
             email
             createdAt
-            updatedAt
         }
     }
 `;
