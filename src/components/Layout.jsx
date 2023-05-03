@@ -1,16 +1,29 @@
 import { Outlet } from "react-router-dom"
 import { useNotificationContext } from "../context/NotificationContext"
+import { useUserContext } from "../context/UserContext"
 
 import Navbar from "./Navbar"
 import Footer from "./Footer"
 import Notification from "./Notification"
+import { useEffect } from "react"
 
 export default function Layout() {
-    const { notification } = useNotificationContext();
+    const { notification, setNotification } = useNotificationContext();
+    const { user } = useUserContext();
+
+    useEffect(() => {
+        if (user.id !== "")
+            setNotification({ show: true, message: `Welcome back, ${user.username}!`, type: "success" });
+        else
+            setNotification({ show: true, message: "You are not logged in.", type: "warning" });
+    }, [user]);
+
     return (
-        <div className="min-h-screen bg-slate-900 text-white items-center">
+        <div className="min-h-screen bg-slate-900 text-white items-center w-full">
             <Navbar />
-            {notification.show === true && <Notification message={notification.message} type={notification.type} />}
+            <div className="flex flex-col items-center justify-center w-full">
+                {notification.show === true && <Notification message={notification.message} type={notification.type} />}
+            </div>
             <Outlet />
             <Footer />
         </div>
