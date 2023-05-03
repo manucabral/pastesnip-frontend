@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function SignUp() {
     return (
-        <div className="flex flex-col w-full items-center justify-center min-h-fit gap-10">
+        <div className="flex flex-col w-full lg:h-screen items-center justify-center min-h-fit gap-10">
             <div className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
                 <h1 className="text-white text-3xl mt-10 font-bold">Sign Up</h1>
                 <h2 className="text-white text-xl">Create your account to get started, it's free!</h2>
