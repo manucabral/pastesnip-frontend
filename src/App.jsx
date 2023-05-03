@@ -17,16 +17,24 @@ import { useNotificationContext } from './context/NotificationContext';
 export default function App() {
     const navigate = useNavigate();
     const { setUser } = useUserContext();
-    const { notification, setNotification } = useNotificationContext();
+    const { setNotification } = useNotificationContext();
     const { loading, error } = useQuery(Q_HELLO);
-    const queryMe = useQuery(Q_ME);
-
-    const { identifyUser } = useAuth({ notification, setNotification, queryMe, setUser });
+    const { loading: loadingMe, error: errorMe, data: dataMe, refetch: queryMe } = useQuery(Q_ME);
 
     useEffect(() => {
-        identifyUser();
-    }, []);
+
+        if (dataMe) {
+            const { id, username, email } = dataMe.me;
+            setUser({ id, username, email });
+            setNotification({ show: true,  message: `Welcome back ${username}!`, type: "success" });
+        } else {
+            setNotification({ show: true,  message: "Welcome to Pastesnip!", type: "success" });
+            setUser({ id: "", username: "", email: "" });
+        }
+    }, [dataMe, setUser])
+
     if (loading) return <Loading />;
+    if (loadingMe) return <Loading />;
     if (error) navigate("/maintenance");
 
     return (
