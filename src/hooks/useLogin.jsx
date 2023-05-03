@@ -19,7 +19,7 @@ export const useLogin = ({ notification, setNotification, loginMutation, navigat
         try{
             const response = await loginMutation({ variables: { email, password } });
             const { access, refresh } = response.data.loginUser;
-            localStorage.setItem('acess', access);
+            localStorage.setItem('access', access);
             localStorage.setItem('refresh', refresh);
             navigate('/');
         } catch (err) {
