@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import Contact from "../components/Contact"
-import Footer from '../components/Footer'
 
 export default function Home() {
     useEffect(() => {
@@ -103,22 +102,22 @@ export default function Home() {
                             </p>
                         </div>
                         <div>
-                            <div class="flex justify-center border border-blue-500/60 text-2xl items-center mb-4 w-10 h-10 rounded-md lg:h-12 lg:w-12">
+                            <div className="flex justify-center border border-blue-500/60 text-2xl items-center mb-4 w-10 h-10 rounded-md lg:h-12 lg:w-12">
                                 🧑🏽‍💻
                             </div>
-                            <h3 class="mb-2 text-xl font-bold dark:text-white"> Open to contribute </h3>
-                            <p class="text-gray-500 dark:text-gray-400">
+                            <h3 className="mb-2 text-xl font-bold dark:text-white"> Open to contribute </h3>
+                            <p className="text-gray-500 dark:text-gray-400">
                                 We are waiting for your contribution, you can contribute to the project
                                 and make it better, we are open to new ideas and new features that you
                                 can bring to the project
                             </p>
                         </div>
                         <div>
-                            <div class="flex justify-center border border-blue-500/60 text-2xl items-center mb-4 w-10 h-10 rounded-md lg:h-12 lg:w-12">
+                            <div className="flex justify-center border border-blue-500/60 text-2xl items-center mb-4 w-10 h-10 rounded-md lg:h-12 lg:w-12">
                                 🌩️
                             </div>
-                            <h3 class="mb-2 text-xl font-bold dark:text-white"> Fast </h3>
-                            <p class="text-gray-500 dark:text-gray-400">
+                            <h3 className="mb-2 text-xl font-bold dark:text-white"> Fast </h3>
+                            <p className="text-gray-500 dark:text-gray-400">
                                 We have a fast system that allows you to create pastes and share them
                                 with other users in multi times, we are simply fast and we are always
                                 looking for ways to improve our system
