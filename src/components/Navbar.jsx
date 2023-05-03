@@ -30,10 +30,10 @@ export default function Navbar() {
                 </div>
                 <div>
                     <Link to='/signup' className="inline-block text-sm px-4 py-2 leading-none border rounded text-blue-400 font-bold border-blue-500 hover:border-transparent hover:text-white hover:bg-blue-500/60 mt-4 lg:mt-0">
-                        Register
+                        Sign Up
                     </Link>
                     <Link to='/signin' className="inline-block ml-2 text-sm px-4 py-2 leading-none border rounded text-blue-400 font-bold border-indigo-500 hover:border-transparent hover:text-white hover:bg-blue-500/70 mt-4 lg:mt-0 mr-6">
-                        Login
+                        Sign In
                     </Link>
                     <Link to='https://www.github.com/pastesnip'>
                         <FaGithub className="inline-flex flex-shrink-0 text-xl"/>
