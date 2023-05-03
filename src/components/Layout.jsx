@@ -12,8 +12,8 @@ export default function Layout() {
     const { user } = useUserContext();
 
     useEffect(() => {
-        if (user.id !== "")
-            setNotification({ show: true, message: `Welcome back, ${user.username}!`, type: "success" });
+        if (localStorage.getItem('access') !== null)
+            setNotification({ show: true, message: `You are logged in as test.`, type: "success" });
         else
             setNotification({ show: true, message: "You are not logged in.", type: "warning" });
     }, [user]);
