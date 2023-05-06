@@ -1,16 +1,19 @@
-export const useAuth = ({ notification, setNotification, setUser, queryMe }) => {
+export const useAuth = ({ setUser }) => {
+    
+    const identifyUser = (dataMe) => {
+        if (!dataMe) return;
+        const { id, username, email } = dataMe.me;
+        setUser({ id, username, email });
+    }
 
-    const identifyUser = async () => {
-        try {
-            const response = await meQuery();
-            const { id, username, email } = response.data.me;
-            setUser({ id, username, email });
-        } catch (err) {
-            setUser({ id: "", username: "", email: "" });
-        }
+    const signOut = () => {
+        localStorage.removeItem('access');
+        localStorage.removeItem('refresh');
+        setUser({ id: "", username: "", email: "" });
     }
 
     return {
-        identifyUser
+        identifyUser,
+        signOut
     }
 }
