@@ -14,3 +14,20 @@ export const M_LOGIN = gql`
         }
     }
 `;
+
+/**
+ * @description Register mutation for create a new user
+ * @param {String} username
+ * @param {String} email
+ * @param {String} password
+ * @returns {Object} - The user data (object)
+ */
+export const M_REGISTER = gql`
+    mutation register($username: String!, $email: String!, $password: String!) {
+        createNewUser(username: $username, email: $email, password: $password) {
+            id
+            username
+            email
+        }
+    }
+`;
