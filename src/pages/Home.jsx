@@ -26,7 +26,7 @@ export default function Home() {
                     </p>
                     <div className="flex flex-col mb-8 lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
                         <Link to='/signin' className="shadow-lg shadow-white/20 opacity-80 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center hover:text-gray-900 rounded-lg border border-gray-300 focus:ring-4 dark:text-white border-white/60 hover:bg-white focus:ring-gray-800 hover:shadow-lg hover:shadow-white/70 hover:transition-all hover:delay-[0.1s]">
-                            Sign in &rarr;
+                            Login
                         </Link>
                         <Link to='/signup' className="shadow-lg shadow-blue-900/60 opacity-80 inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-gray-900 rounded-lg border border-gray-300 focus:ring-4 dark:text-white border-blue-500/60 hover:bg-blue-900 focus:ring-gray-800 hover:shadow-lg hover:shadow-blue-500/70 hover:transition-all hover:delay-[0.1s]">
                             Register
