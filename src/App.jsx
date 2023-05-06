@@ -9,30 +9,26 @@ import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 import Maintenance from './pages/Maintenance';
 import Loading from './components/Loading';
-import { useAuth } from './hooks/useAuth';
+import Profile from './pages/Profile';
+
 import { useEffect } from 'react';
 import { useUserContext } from './context/UserContext';
 import { useNotificationContext } from './context/NotificationContext';
+import { useAuth } from './hooks/useAuth';
+import RequireAuth from './components/RequireAuth';
 
 export default function App() {
     const navigate = useNavigate();
     const { setUser } = useUserContext();
     const { setNotification } = useNotificationContext();
     const { loading, error } = useQuery(Q_HELLO);
-    const { loading: loadingMe, error: errorMe, data: dataMe, refetch: queryMe } = useQuery(Q_ME);
-
+    const { loading: loadingMe, data: dataMe } = useQuery(Q_ME);
+    const { identifyUser } = useAuth({ setNotification, setUser });
+    
     useEffect(() => {
-
-        if (dataMe) {
-            const { id, username, email } = dataMe.me;
-            setUser({ id, username, email });
-            setNotification({ show: true,  message: `Welcome back ${username}!`, type: "success" });
-        } else {
-            setNotification({ show: true,  message: "Welcome to Pastesnip!", type: "success" });
-            setUser({ id: "", username: "", email: "" });
-        }
-    }, [dataMe, setUser])
-
+        identifyUser(dataMe);
+    }, [dataMe])
+    
     if (loading) return <Loading />;
     if (loadingMe) return <Loading />;
     if (error) navigate("/maintenance");
@@ -41,8 +37,14 @@ export default function App() {
         <Routes>
             <Route path="/" element={<Layout />}>
                 <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
+                <Route path="/profile" element={
+                    <RequireAuth>
+                        <Profile />
+                    </RequireAuth>
+                } />
                 <Route path="/maintenance" element={<Maintenance />} />
                 <Route path="*" element={<NotFound />} />
             </Route>
