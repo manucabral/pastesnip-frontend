@@ -28,7 +28,7 @@ export default function SignIn() {
                 <p className="text-white">Don't have an account? <Link to="/signup" className="text-slate-400">Sign Up</Link></p>
             </div>
             <form className="flex flex-col items-center justify-center lg:w-1/2 w-full" onSubmit={handleSubmit}>
-                <input name="email" type="text" placeholder="Email" className="bg-gray-800 text-white rounded-md p-2 my-2 lg:w-1/2 w-3/5" />
+                <input name="email" type="email" placeholder="Email" className="bg-gray-800 text-white rounded-md p-2 my-2 lg:w-1/2 w-3/5" />
                 <input name="password" type="password" placeholder="Password" className="bg-gray-800 text-white rounded-md p-2 my-2 lg:w-1/2 w-3/5" />
                 <button className="bg-gray-800 text-white rounded-md hover:bg-slate-500 p-2 my-2 w-1/2">Sign In</button>
             </form>
