@@ -4,20 +4,24 @@ import { useNotificationContext } from "../context/NotificationContext"
 import { useMutation } from "@apollo/client";
 import { useNavigate } from "react-router-dom";
 import { M_LOGIN } from "../graphql/mutations";
-import Loading from "../components/Loading";
 import { useEffect } from "react";
+import { useUserContext } from "../context/UserContext";
+
+import Loading from "../components/Loading";
 
 export default function SignIn() {
     const navigate = useNavigate();
+    const { user } = useUserContext();
     const { notification, setNotification } = useNotificationContext();
     const [ loginMutation, { loading }] = useMutation(M_LOGIN);
     const { handleSubmit } = useLogin({ notification, setNotification, loginMutation, navigate });
     useEffect(() => {
         document.title = "Sign In - Pastesnip"
     }, [])
+    if (user.id !== "") navigate("/home");
     if (loading) return <Loading />;
     return (
-        <div className="flex flex-col w-full lg:h-screen items-center justify-center min-h-fit gap-10">
+        <div className="flex flex-col w-full items-center justify-center min-h-fit gap-10">
             <div className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
                 <h1 className="text-white text-3xl mt-10 font-bold">Sign In</h1>
                 <h2 className="text-white text-xl">It's good to see you again!</h2>
