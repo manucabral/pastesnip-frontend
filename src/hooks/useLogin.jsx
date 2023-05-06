@@ -21,7 +21,7 @@ export const useLogin = ({ notification, setNotification, loginMutation, navigat
             const { access, refresh } = response.data.loginUser;
             localStorage.setItem('access', access);
             localStorage.setItem('refresh', refresh);
-            navigate(0);
+            navigate('/');
         } catch (err) {
             setNotification({ show: true, message: 'Invalid credentials or user does not exist', type: "warning" });
         }
