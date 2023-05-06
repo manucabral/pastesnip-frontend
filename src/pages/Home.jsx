@@ -1,5 +1,6 @@
 import { useEffect } from "react"
 import { Link } from "react-router-dom"
+import Footer from "../components/Footer"
 import Contact from "../components/Contact"
 
 export default function Home() {
@@ -10,7 +11,7 @@ export default function Home() {
         <div className="w-full">
             <section>
                 <div className="flex flex-col items-center py-8 px-4 text-center lg:py-16 lg:px-12">
-                    <div className="text-center py-4 lg:px-4">
+                    <div className="text-center py-4 lg:px-4 hidden sm:block">
                         <div className="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex " role="alert">
                             <span className="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-sm font-bold mr-3">UPCOMING 🎉</span>
                             <a href="https://github.com/TeamParches/pastesnip-backend" className="font-semibold mr-2 text-left flex-auto">Get up to date on our Blog section!</a>
@@ -127,6 +128,7 @@ export default function Home() {
                 </div>
             </section>
             <Contact />
+            <Footer />
         </div>
     )
 }
