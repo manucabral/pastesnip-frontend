@@ -31,3 +31,32 @@ export const M_REGISTER = gql`
         }
     }
 `;
+
+/**
+ * @description Create a new paste
+ * @param {String} title
+ * @param {String} content
+ * @param {String} syntax_highlight - like: javascript, python, etc.
+ * @param {Boolean} private
+ * @param {Array} tags
+ * @returns {Object} - The paste data (object)
+ */
+export const M_CREATE_PASTE = gql`
+    mutation createPaste(
+        $title: String!,
+        $content: String!,
+        $syntax_highlight: String!,
+        $private: Boolean!,
+        $tags: [String!]
+    ) {
+        createPaste(title: $title, content: $content, syntax_highlight: $syntax_highlight, private: $private, tags: $tags) {
+            id
+            title
+            content
+            syntax_highlight
+            private
+            tags
+        }
+    }
+`;
+        
