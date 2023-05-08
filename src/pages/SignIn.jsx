@@ -23,8 +23,8 @@ export default function SignIn() {
     useEffect(() => {
         document.title = 'Sign In - Pastesnip'
     }, [])
-    if (user.id !== '') return <Navigate to="/home" />
     if (loading) return <Loading />
+    if (user.id !== '') return <Navigate to="/" />
     return (
         <div className="flex flex-col w-full items-center justify-center min-h-fit gap-10">
             <div className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
