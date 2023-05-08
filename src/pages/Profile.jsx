@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { useUserContext } from "../context/UserContext"
 
 export default function Profile() {
     const { user } = useUserContext();
+    useEffect(() => {
+        document.title = `${user.username} - Pastesnip`
+    }, [])
     return (
         <div className="flex flex-col items-center justify-center w-full">
             <div className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
