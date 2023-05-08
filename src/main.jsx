@@ -11,7 +11,7 @@ import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <ApolloProvider client={client}>
-        <BrowserRouter basename='/pastesnip-frontend'>
+        <BrowserRouter basename="/pastesnip-frontend">
             <NotificationProvider>
                 <UserProvider>
                     <App />
@@ -19,4 +19,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             </NotificationProvider>
         </BrowserRouter>
     </ApolloProvider>
-);
+)
