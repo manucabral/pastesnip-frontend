@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp';
 import Maintenance from './pages/Maintenance';
 import Loading from './components/Loading';
 import Profile from './pages/Profile';
+import NewPaste from './pages/NewPaste';
 
 import { useEffect } from 'react';
 import { useUserContext } from './context/UserContext';
@@ -43,6 +44,11 @@ export default function App() {
                 <Route path="/profile" element={
                     <RequireAuth>
                         <Profile />
+                    </RequireAuth>
+                } />
+                <Route path="/newpaste" element={
+                    <RequireAuth>
+                        <NewPaste />
                     </RequireAuth>
                 } />
                 <Route path="/maintenance" element={<Maintenance />} />

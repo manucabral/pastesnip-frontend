@@ -41,6 +41,9 @@ export default function Navbar() {
                 <div>
                     {user.username ? (
                         <>
+                            <Link to='/newpaste' className="inline-block ml-2 text-sm px-4 py-2 leading-none border rounded text-white font-bold border-green-500 hover:border-transparent hover:text-black hover:bg-green-500/70 mt-4 lg:mt-0 mr-6">
+                                New Paste
+                            </Link>
                             <Link to='/profile' className="inline-block text-sm px-4 py-2 leading-none border rounded text-blue-400 font-bold border-blue-500 hover:border-transparent hover:text-white hover:bg-blue-500/60 mt-4 lg:mt-0">
                                 Profile
                             </Link>
