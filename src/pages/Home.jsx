@@ -11,20 +11,17 @@ export default function Home() {
         <div className="w-full">
             <section>
                 <div className="flex flex-col items-center py-8 px-4 text-center lg:py-16 lg:px-12">
-                    <div className="text-center py-4 lg:px-4 hidden sm:block">
+                    <div className="text-center py-4 lg:px-4 sm:block">
                         <div
-                            className="p-2 bg-indigo-800 items-center text-indigo-100 leading-none lg:rounded-full flex lg:inline-flex "
+                            className="p-2 border mb-10 border-teal-600 items-center text-indigo-100 hover:shadow-2xl transition-all hover:shadow-teal-400 leading-none lg:rounded-full flex lg:inline-flex md:rounded-full"
                             role="alert"
                         >
-                            <span className="flex rounded-full bg-indigo-500 uppercase px-2 py-1 text-sm font-bold mr-3">
-                                UPCOMING 🎉
+                            <span className="flex rounded-full bg-teal-500 uppercase px-2 py-1 text-sm font-bold mr-3">
+                                NEW
                             </span>
-                            <a
-                                href="https://github.com/TeamParches/pastesnip-backend"
-                                className="font-semibold mr-2 text-left flex-auto"
-                            >
-                                Get up to date on our Blog section!
-                            </a>
+                            <p className="font-semibold mr-2 text-left flex-auto">
+                                Pastesnip is being developed, will soon be available
+                            </p>
                         </div>
                     </div>
                     <h1 className="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
