@@ -53,8 +53,8 @@ export default function NewPaste() {
                             onChange={(e) => setTabSpaces(e.target.value)}
                         />
                     </div>
-                    <button className="w-1/2 bg-blue-500 text-white p-2 rounded-lg">
-                        Create Paste
+                    <button className="w-1/2 font-semibold text-green-500 rounded-sm border border-green-700 py-2 transition-colors hover:bg-green-500/20 hover:text-white">
+                        Create new paste
                     </button>
                 </form>
             </div>
