@@ -11,26 +11,45 @@ import Loading from "../components/Loading";
 export default function SignUp() {
     const navigate = useNavigate();
     const { setNotification } = useNotificationContext();
-    const [ registerMutation, { loading }] = useMutation(M_REGISTER);
+    const [registerMutation, { loading }] = useMutation(M_REGISTER);
     const { handleSubmit } = useRegister({ setNotification, registerMutation, navigate })
     useEffect(() => {
         document.title = "Sign Up - Pastesnip"
     }, [])
     if (loading) return <Loading />;
     return (
-        <div className="flex flex-col w-full items-center justify-center min-h-fit gap-10">
-            <div className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
-                <h1 className="text-white text-3xl mt-10 font-bold">Sign Up</h1>
-                <h2 className="text-white text-xl">Create your account to get started, it's free!</h2>
-                <p className="text-white">Already have an account? <Link to="/signin" className="text-slate-400">Sign In</Link></p>
+        <section>
+            <div className="flex flex-col mt-8 items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 bg-blue-800/30 border-blue-700">
+                    <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                        <h1 className="text-xl font-bold leading-tight tracking-tight text-white-900 md:text-2xl">
+                            Sign up in Paste<span className="text-blue-500">snip</span>
+                        </h1>
+                        <form className="space-y-4 md:space-y-6" onSubmit={handleSubmit}>
+                            <div>
+                                <label for="username" className="block mb-2 text-sm font-medium text-white">Your username</label>
+                                <input name="username" type="text" className="bg-blue-800/30 border border-blue-600 sm:text-sm rounded-lg block w-full p-2.5" placeholder="imgreat87" required />
+                            </div>
+                            <div>
+                                <label for="email" className="block mb-2 text-sm font-medium text-white">Your email</label>
+                                <input name="email" type="email" className="bg-blue-800/30 border border-blue-600 text-white sm:text-sm rounded-lg block w-full p-2.5" placeholder="imgreat87@gmail.com" required />
+                            </div>
+                            <div>
+                                <label for="password" className="block mb-2 text-sm font-medium text-white">Your password</label>
+                                <input name="password" type="password" className="bg-blue-800/30 border border-blue-600 text-white sm:text-sm rounded-lg block w-full p-2.5" placeholder="XXXXXXX" required />
+                            </div>
+                            <div>
+                                <label for="confirmPassword" className="block mb-2 text-sm font-medium text-white">Confirm password</label>
+                                <input name="confirmPassword" type="password" className="bg-blue-800/30 border border-blue-600 text-white sm:text-sm rounded-lg block w-full p-2.5" placeholder="XXXXXXX" required />
+                            </div>
+                            <button className="w-full font-semibold text-blue-500 rounded-sm border border-blue-700 py-2 transition-colors hover:bg-blue-500/20 hover:text-white"> Create my account </button>
+                            <p className="text-sm font-light text-gray-300">
+                                Already have an account? <Link to='/signin' className="font-medium text-blue-600 hover:underline">Sign in here</Link>
+                            </p>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <form className="flex flex-col items-center justify-center lg:w-1/2 w-full" onSubmit={handleSubmit}>
-                <input name="username" type="text" placeholder="Username" className="bg-gray-800 text-white rounded-md p-2 my-2 lg:w-1/2 w-3/5" />
-                <input name="email" type="email" placeholder="Email" className="bg-gray-800 text-white rounded-md p-2 my-2 lg:w-1/2 w-3/5" />
-                <input name="password" type="password" placeholder="Password" className="bg-gray-800 text-white rounded-md p-2 my-2 lg:w-1/2 w-3/5" />
-                <input name="confirmPassword" type="password" placeholder="Confirm Password" className="bg-gray-800 text-white rounded-md p-2 my-2 lg:w-1/2 w-3/5" />
-                <button className="bg-gray-800 text-white rounded-md hover:bg-slate-500 p-2 my-2 w-1/2">Create my account</button>
-            </form>
-        </div>
+        </section>
     )
 }
