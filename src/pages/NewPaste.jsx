@@ -20,7 +20,7 @@ export default function NewPaste() {
                     className="w-full h-96 bg-gray-800 text-white outline-none p-5 rounded-lg"
                     placeholder="Paste your code here..."
                 ></textarea>
-                <div className="flex flex-col items-center justify-between w-full gap-2">
+                <form className="flex flex-col items-center justify-between w-full gap-2">
                     <div className="flex flex-col lg:flex-row items-center justify-between lg:w-1/2 w-full">
                         <label className="text-white text-lg"> Title </label>
                         <input
@@ -53,10 +53,10 @@ export default function NewPaste() {
                             onChange={(e) => setTabSpaces(e.target.value)}
                         />
                     </div>
-                </div>
-                <button className="bg-gray-800 text-white rounded-md hover:bg-slate-500 p-2 my-2 w-1/2">
-                    Create Paste
-                </button>
+                    <button className="w-1/2 bg-blue-500 text-white p-2 rounded-lg">
+                        Create Paste
+                    </button>
+                </form>
             </div>
         </div>
     )
