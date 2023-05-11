@@ -1,6 +1,5 @@
 import { Link, Navigate } from 'react-router-dom'
 import { useLogin } from '../hooks/useLogin'
-import { useNotificationContext } from '../context/NotificationContext'
 import { useMutation } from '@apollo/client'
 import { useNavigate } from 'react-router-dom'
 import { M_LOGIN } from '../graphql/mutations'
@@ -10,19 +9,14 @@ import { useUserContext } from '../context/UserContext'
 import Loading from '../components/Loading'
 
 export default function SignIn() {
-    const navigate = useNavigate()
     const { user } = useUserContext()
-    const { notification, setNotification } = useNotificationContext()
     const [loginMutation, { loading }] = useMutation(M_LOGIN)
-    const { handleSubmit } = useLogin({
-        notification,
-        setNotification,
-        loginMutation,
-        navigate,
-    })
+    const { handleSubmit } = useLogin()
+
     useEffect(() => {
         document.title = 'Sign In - Pastesnip'
     }, [])
+
     if (loading) return <Loading />
     if (user.id !== '') return <Navigate to="/" />
     return (
@@ -41,7 +35,7 @@ export default function SignIn() {
             </div>
             <form
                 className="flex flex-col items-center justify-center lg:w-1/2 w-full"
-                onSubmit={handleSubmit}
+                onSubmit={(e) => handleSubmit(e, loginMutation)}
             >
                 <input
                     name="email"

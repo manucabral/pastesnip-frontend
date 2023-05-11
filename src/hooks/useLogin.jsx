@@ -1,15 +1,14 @@
-export const useLogin = ({
-    notification,
-    setNotification,
-    loginMutation,
-    navigate,
-}) => {
+import { useNotificationContext } from '../context/NotificationContext'
+
+export const useLogin = () => {
+    const { notification, setNotification } = useNotificationContext()
+
     const validateEmail = (email) => {
         if (!email) return false
         return email.match(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e, loginMutation) => {
         e.preventDefault()
         let formData = new FormData(e.target)
         let email = formData.get('email')
@@ -35,7 +34,7 @@ export const useLogin = ({
             const { access, refresh } = response.data.loginUser
             localStorage.setItem('access', access)
             localStorage.setItem('refresh', refresh)
-            navigate(0)
+            window.location.reload()
         } catch (err) {
             setNotification({
                 show: true,
