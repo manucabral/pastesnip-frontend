@@ -1,7 +1,6 @@
 import { Link, Navigate } from 'react-router-dom'
 import { useLogin } from '../hooks/useLogin'
 import { useMutation } from '@apollo/client'
-import { useNavigate } from 'react-router-dom'
 import { M_LOGIN } from '../graphql/mutations'
 import { useEffect } from 'react'
 import { useUserContext } from '../context/UserContext'

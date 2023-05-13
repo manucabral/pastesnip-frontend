@@ -14,24 +14,25 @@ import NewPaste from './pages/NewPaste'
 
 import { useEffect } from 'react'
 import { useUserContext } from './context/UserContext'
-import { useNotificationContext } from './context/NotificationContext'
 import { useAuth } from './hooks/useAuth'
+// deprecated for now.
 import RequireAuth from './components/RequireAuth'
 
 export default function App() {
     const navigate = useNavigate()
     const { setUser } = useUserContext()
-    const { setNotification } = useNotificationContext()
+    const { identifyUser } = useAuth({ setUser })
+
     const { loading: loadingHello, error } = useQuery(Q_HELLO)
     const { loading: loadingMe, data: dataMe } = useQuery(Q_ME)
-    const { identifyUser } = useAuth({ setNotification, setUser })
 
     useEffect(() => {
         identifyUser(dataMe)
     }, [dataMe])
 
-    if (loadingHello) return <Loading />
-    if (loadingMe) return <Loading />
+    if (loadingHello)
+        return <Loading additional={'Checking server status...'} />
+    if (loadingMe) return <Loading additional={'Checking user status...'} />
     if (error) navigate('/maintenance')
 
     return (
@@ -41,22 +42,8 @@ export default function App() {
                 <Route path="/home" element={<Home />} />
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
-                <Route
-                    path="/profile"
-                    element={
-                        <RequireAuth userPayload={dataMe}>
-                            <Profile />
-                        </RequireAuth>
-                    }
-                />
-                <Route
-                    path="/newpaste"
-                    element={
-                        <RequireAuth userPayload={dataMe}>
-                            <NewPaste />
-                        </RequireAuth>
-                    }
-                />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/newpaste" element={<NewPaste />} />
                 <Route path="/maintenance" element={<Maintenance />} />
                 <Route path="*" element={<NotFound />} />
             </Route>

@@ -1,9 +1,16 @@
 import { useEffect, useState } from 'react'
 import { useTextArea } from '../hooks/useTextArea'
+import { useMutation } from '@apollo/client'
+import { M_CREATE_PASTE } from '../graphql/mutations'
+import { usePaste } from '../hooks/usePaste'
+import { useNotificationContext } from '../context/NotificationContext'
 
 export default function NewPaste() {
     const [tabSpaces, setTabSpaces] = useState(4)
+    const [createPaste] = useMutation(M_CREATE_PASTE)
+    const { setNotification } = useNotificationContext()
     const { handleKeyDown } = useTextArea({ tabSpaces })
+    const { handleSubmit } = usePaste({ setNotification })
     useEffect(() => {
         document.title = 'New Paste - Pastesnip'
     }, [])
@@ -15,15 +22,20 @@ export default function NewPaste() {
                 </h1>
             </div>
             <div className="flex flex-col items-center w-full lg:w-1/2 gap-5 text-center">
-                <textarea
-                    onKeyDown={handleKeyDown}
-                    className="w-full h-96 bg-gray-800 text-white outline-none p-5 rounded-lg"
-                    placeholder="Paste your code here..."
-                ></textarea>
-                <form className="flex flex-col items-center justify-between w-full gap-2">
+                <form
+                    onSubmit={(e) => handleSubmit(e, createPaste)}
+                    className="flex flex-col items-center justify-between w-full gap-2"
+                >
+                    <textarea
+                        name="content"
+                        onKeyDown={handleKeyDown}
+                        className="w-full h-96 bg-gray-800 text-white outline-none p-5 rounded-lg"
+                        placeholder="Paste your code here..."
+                    ></textarea>
                     <div className="flex flex-col lg:flex-row items-center justify-between lg:w-1/2 w-full">
                         <label className="text-white text-lg"> Title </label>
                         <input
+                            name="title"
                             className="w-1/2 bg-gray-800 outline-none text-white p-2 rounded-lg"
                             placeholder="Title"
                         />
@@ -32,14 +44,20 @@ export default function NewPaste() {
                         <label className="text-white text-lg">
                             Syntax Highlighting
                         </label>
-                        <select className="w-1/2 bg-gray-800 outline-none text-white p-2 rounded-lg">
+                        <select
+                            name="syntax"
+                            className="w-1/2 bg-gray-800 outline-none text-white p-2 rounded-lg"
+                        >
                             <option value="javascript">JavaScript</option>
                             <option value="python">Python</option>
                         </select>
                     </div>
                     <div className="flex flex-col lg:flex-row items-center justify-between lg:w-1/2 w-full">
                         <label className="text-white text-lg"> Public </label>
-                        <select className="w-1/2 bg-gray-800 outline-none text-white p-2 rounded-lg">
+                        <select
+                            name="public"
+                            className="w-1/2 bg-gray-800 outline-none text-white p-2 rounded-lg"
+                        >
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
