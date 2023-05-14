@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp'
 import Maintenance from './pages/Maintenance'
 import Loading from './components/Loading'
 import Profile from './pages/Profile'
+import ProfileById from './pages/ProfileById'
 import NewPaste from './pages/NewPaste'
 
 import { useEffect } from 'react'
@@ -43,6 +44,7 @@ export default function App() {
                 <Route path="/signin" element={<SignIn />} />
                 <Route path="/signup" element={<SignUp />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/profile/:id" element={<ProfileById />} />
                 <Route path="/newpaste" element={<NewPaste />} />
                 <Route path="/maintenance" element={<Maintenance />} />
                 <Route path="*" element={<NotFound />} />
