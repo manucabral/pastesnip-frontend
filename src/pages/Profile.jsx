@@ -1,18 +1,15 @@
 import { useEffect } from 'react'
 import { useUserContext } from '../context/UserContext'
-import { useNotificationContext } from '../context/NotificationContext'
 import { Q_PASTES } from '../graphql/queries'
 import { useQuery } from '@apollo/client'
 import moment from 'moment'
 
 export default function Profile() {
     const { user } = useUserContext()
-    const { setNotification } = useNotificationContext()
     const { loading, error, data } = useQuery(Q_PASTES)
     useEffect(() => {
         document.title = `${user.username} - Pastesnip`
     }, [])
-    console.log(data)
     return (
         <div className="flex flex-col items-center justify-center w-full">
             <section className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
