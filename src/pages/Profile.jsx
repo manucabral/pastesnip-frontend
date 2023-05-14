@@ -12,17 +12,17 @@ export default function Profile() {
     useEffect(() => {
         document.title = `${user.username} - Pastesnip`
     }, [])
-
+    console.log(data)
     return (
         <div className="flex flex-col items-center justify-center w-full">
-            <div className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
+            <section className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
                 <h1 className="text-white text-3xl mt-10 font-bold">Profile</h1>
                 <h2 className="text-white text-xl">
                     Welcome back,{' '}
                     <span className="text-slate-400">{user.username}</span> 👋
                 </h2>
-            </div>
-            <div className="flex flex-col items-center justify-center lg:w-1/2 w-full">
+            </section>
+            <section className="flex flex-col items-center justify-center lg:w-1/2 w-full">
                 <div className="flex flex-col items-center justify-center lg:w-1/2 w-full">
                     <h1 className="text-white text-3xl mt-10 font-bold">
                         Your Pastes
@@ -61,11 +61,16 @@ export default function Profile() {
                                             </p>
                                         </div>
                                     </div>
+                                    <div className="flex flex-row items-center justify-start w-full">
+                                        <p className="text-white text-sm">
+                                            {paste.syntax_highlight}
+                                        </p>
+                                    </div>
                                 </div>
                             ))}
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
     )
 }
