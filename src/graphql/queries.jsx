@@ -45,3 +45,33 @@ export const Q_PASTES = gql`
         }
     }
 `
+export const Q_PASTES_BY_AUTHORID = gql`
+    query getPastesByAuthor($authorId: ID!) {
+        getPastesByAuthor(authorId: $authorId) {
+            id
+            title
+            content
+            syntax_highlight
+            private
+            createdAt
+        }
+    }
+`
+
+/**
+ * @description A query to get a user by their ID.
+ * @param {string} id The user's ID.
+ * @returns {object} The user's data.
+ * @example { getUserById(id: "123") { id, username, email, createdAt } }
+ */
+export const Q_GET_USER_BY_ID = gql`
+    query GetUserById($id: ID!) {
+        getUserById(id: $id) {
+            id
+            username
+            email
+            verified
+            createdAt
+        }
+    }
+`
