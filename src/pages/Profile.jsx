@@ -1,15 +1,18 @@
 import { useEffect } from 'react'
 import { useUserContext } from '../context/UserContext'
-import { Q_PASTES } from '../graphql/queries'
+import { Q_PASTES_BY_AUTHORID } from '../graphql/queries'
 import { useQuery } from '@apollo/client'
 import moment from 'moment'
 
 export default function Profile() {
     const { user } = useUserContext()
-    const { loading, error, data } = useQuery(Q_PASTES)
+    const { loading, error, data } = useQuery(Q_PASTES_BY_AUTHORID, {
+        variables: { authorId: user.id },
+    })
+    console.log(user)
     useEffect(() => {
         document.title = `${user.username} - Pastesnip`
-    }, [])
+    }, [user])
     return (
         <div className="flex flex-col items-center justify-center w-full">
             <section className="flex flex-col items-center lg:w-1/2 w-3/4 gap-5 text-center">
@@ -32,7 +35,7 @@ export default function Profile() {
                             </p>
                         )}
                         {data &&
-                            data.pastes.map((paste) => (
+                            data.getPastesByAuthor.map((paste) => (
                                 <div
                                     onClick={() => {
                                         console.log(paste.id)
